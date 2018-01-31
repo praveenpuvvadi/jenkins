@@ -9,7 +9,7 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt-get update
 
 # Install OpenJDK 8 runtime.
-sudo apt-get install openjdk-8-jre
+sudo apt-get install -y openjdk-8-jre
 
 # Install Jenkins.
-sudo apt-get install jenkins
+sudo apt-get install -y jenkins
