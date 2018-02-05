@@ -62,9 +62,11 @@ By default, Jenkins listens on port 8080.
 
 After the installation is complete you can access Jenkins by navigating your favorite browser to: http://your_domain:8080 or http://your_server_IP_address:8080
 *************************************************************************************************************************************************************
-add gui to ubuntu 14.04
+#TO ADD GUI to ubuntu 14.04:
 sudo apt-get install gnome : 1.9 gb GUI
 reboot: restart ubuntu
+
 -or-
+
 sudo apt-get install ubuntu-desktop : traditional ubuntu GUI
 reboot : restart 
