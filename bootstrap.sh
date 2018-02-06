@@ -13,3 +13,6 @@ sudo apt-get install -y openjdk-8-jre
 
 # Install Jenkins.
 sudo apt-get install -y jenkins
+
+# Run Jenkins on port 9090. (8080 may cause an error.)
+java -jar /usr/share/jenkins/jenkins.war --httpPort=9090
