@@ -23,3 +23,10 @@ sudo apt-get install -y jenkins
 
 # Run Jenkins on port 9090. (8080 will cause an error.)
 java -jar /usr/share/jenkins/jenkins.war --httpPort=9090
+
+# To configure the PPA on your machine and install ansible run these commands
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
