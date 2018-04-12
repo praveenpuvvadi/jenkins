@@ -10,7 +10,7 @@ wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
 
 # Update the package list.
-sudo apt-get update
+sudo apt-get -y update
 
 # Automatically accept the Oracle Java 8 license.
 echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
@@ -25,8 +25,6 @@ sudo apt-get install -y jenkins
 java -jar /usr/share/jenkins/jenkins.war --httpPort=9090
 
 # To configure the PPA on your machine and install ansible run these commands
-sudo apt-get update
 sudo apt-get install software-properties-common
 sudo apt-add-repository ppa:ansible/ansible
-sudo apt-get update
-sudo apt-get install ansible
+sudo apt-get install -y ansible
