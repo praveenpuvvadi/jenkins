@@ -1,0 +1,48 @@
+#vim or nano the configuration file for mysql server on vagrant box
+nano /etc/mysql/my.cnf
+
+#replace bind-address line as follows:
+bind-address    = 0.0.0.0
+
+# If using Ubuntu, restart mysql using this command
+service mysql restart
+
+# Test that your connection is allowed with telnet on your guest machine:
+telnet 127.0.0.1 3306
+
+# Grant permission to root from any host on database "databsename"
+GRANT ALL ON databasename.* TO root@'%' IDENTIFIED BY 'your_password';
+# Grant permission to root from any host to all databases
+GRANT ALL ON databasename.* TO root@'%' IDENTIFIED BY 'your_password';
+
+#also if you are stting up port forwarding do such in the Vagrantfile
+# I am forwarding port 3306(deafult mysql port) on vagrant machine to port 8090 on host machine
+#remot access from another host on internet
+mysql -h10.194.8.46 -P 8090 -uroot -p
+
+# To test on localhost machine
+mysql -h127.0.0.1 -P 8090 -uroot -p
+
+# To test on guest machine
+mysql -h127.0.0.1 -P 3060 -uroot -p
+
+--------------------------------------------------
+#service TEST on host machine
+command: nmap localhost 
+It shows the following
+
+PORT     STATE SERVICE
+22/tcp   open  ssh
+80/tcp   open  http
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+631/tcp  open  ipp
+3306/tcp open  mysql
+
+which indicates port 3306 is open for mysql
+
+# TO test if the variable are really update use these commands
+mysql> show variables like '%skip_networking%';.
+
+mysql> show variables like '%bind%';
+
